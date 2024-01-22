@@ -2,7 +2,7 @@
 
 Сделать полный dump
 ```shell
-pg_dump -U postgres test_db.megaschema > /dumps/psql_dump_1.sql
+pg_dump -U postgres test_db > /dumps/psql_dump_1.sql
 ```
 
 Сделать dump одной таблицы
