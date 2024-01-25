@@ -1,28 +1,28 @@
 version: '3.9'
 name: basic_db
 
-
 services:
   postgres_db:
     image: postgres
 
     environment:
-      POSTGRES_DB: test_db
-      POSTGRES_PASSWORD: "qwerty"
+      POSTGRES_PASSWORD: qwerty
 
     volumes:
       - ./dumps:/dumps
       - postgres_data:/var/lib/postgresql/data
 
     ports:
-      - "5444:5432"
+      - "5432:5432"
+    restart: always
 
   mysql_db:
     image: mysql
 
+    command: --default-authentication-plugin=mysql_native_password
+
     environment:
-      MYSQL_DATABASE: test_db
-      MYSQL_ROOT_PASSWORD: "qwerty"
+      MYSQL_ROOT_PASSWORD: qwerty
 
     volumes:
       - ./dumps:/dumps
@@ -30,7 +30,7 @@ services:
 
     ports:
       - "3306:3306"
-
+    restart: always
 
 volumes:
   mysql_data:
